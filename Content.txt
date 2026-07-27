@@ -1,7 +1,0 @@
-Titel/Arbeitstitel – vorläufiger Name der Arbeit
-Motivation/Problemstellung – warum ist das Thema relevant (z. B. Notwendigkeit von Signal-Tracing in Multicore-Echtzeitsystemen)
-Zielsetzung – was soll am Ende erreicht sein (klar, messbar formuliert)
-Methodik/Vorgehen – wie wird das Ziel erreicht (Tool-Architektur, verwendete Technologien, Entwicklungsschritte)
-Abgrenzung/Scope – was explizit nicht Teil der Arbeit ist
-Zeitplan – grobe Meilensteine über die Bearbeitungsdauer
-Betreuung – interner (Porsche) und externer (Hochschule) Betreuer

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.20)  23 JUL 2026 20:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.5.20)  27 JUL 2026 21:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Daten/Expose/stellenbosch_ee_report.tex
-(c:/Daten/Expose/stellenbosch_ee_report.tex
+**c:/Daten/Expos-_Diplomarbeit/expose.tex
+(c:/Daten/Expos-_Diplomarbeit/expose.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
 (C:\Users\simon\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
@@ -762,33 +762,33 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-LaTeX Font Info:    Trying to load font information for T1+qhv on input line 186.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 189.
  (C:\Users\simon\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 ) (C:\Users\simon\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count387
-) (stellenbosch_ee_report.aux)
-\openout1 = `stellenbosch_ee_report.aux'.
+) (expose.aux)
+\openout1 = `expose.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -824,13 +824,13 @@ LaTeX Font Info:    ... okay on input line 186.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 186.
-Package microtype Info: Applying patch `item' on input line 186.
-Package microtype Info: Applying patch `toc' on input line 186.
-Package microtype Info: Applying patch `eqnum' on input line 186.
-Package microtype Info: Applying patch `footnote' on input line 186.
-Package microtype Info: Applying patch `verbatim' on input line 186.
-LaTeX Info: Redefining \microtypesetup on input line 186.
+LaTeX Info: Redefining \microtypecontext on input line 189.
+Package microtype Info: Applying patch `item' on input line 189.
+Package microtype Info: Applying patch `toc' on input line 189.
+Package microtype Info: Applying patch `eqnum' on input line 189.
+Package microtype Info: Applying patch `footnote' on input line 189.
+Package microtype Info: Applying patch `verbatim' on input line 189.
+LaTeX Info: Redefining \microtypesetup on input line 189.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -848,8 +848,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 (C:\Users\simon\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 186.
-Package translations Info: no dictionary file `translations-basic-dictionary-afrikaans.trsl' found. on input line 186.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 189.
+Package translations Info: no dictionary file `translations-basic-dictionary-afrikaans.trsl' found. on input line 189.
  (C:\Users\simon\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count388
@@ -883,54 +883,75 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-Package hyperref Info: Link coloring ON on input line 186.
- (stellenbosch_ee_report.out) (stellenbosch_ee_report.out)
+Package hyperref Info: Link coloring ON on input line 189.
+ (expose.out) (expose.out)
 \@outlinefile=\write4
-\openout4 = `stellenbosch_ee_report.out'.
+\openout4 = `expose.out'.
 
 \c@lstlisting=\count394
+LaTeX Font Info:    Trying to load font information for TS1+qhv on input line 271.
+ (C:\Users\simon\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qhv.fd
+File: ts1qhv.fd 2009/09/25 v1.2 font definition file for TS1/qhv
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `qhv' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+<Images/WHZ_Dreieck_Logo.png, id=38, 1042.49475pt x 464.937pt>
+File: Images/WHZ_Dreieck_Logo.png Graphic file (type png)
+<use Images/WHZ_Dreieck_Logo.png>
+Package pdftex.def Info: Images/WHZ_Dreieck_Logo.png  used on input line 272.
+(pdftex.def)             Requested size: 204.15259pt x 91.04872pt.
+<Images/WHZ_Logo_dt.png, id=40, 246.4407pt x 64.3203pt>
+File: Images/WHZ_Logo_dt.png Graphic file (type png)
+<use Images/WHZ_Logo_dt.png>
+Package pdftex.def Info: Images/WHZ_Logo_dt.png  used on input line 272.
+(pdftex.def)             Requested size: 119.91843pt x 31.2982pt.
+<Images/Porsche-Motorsport-Logo-Vector.svg-.png, id=41, 451.6875pt x 89.3739pt>
+File: Images/Porsche-Motorsport-Logo-Vector.svg-.png Graphic file (type png)
+<use Images/Porsche-Motorsport-Logo-Vector.svg-.png>
+Package pdftex.def Info: Images/Porsche-Motorsport-Logo-Vector.svg-.png  used on input line 272.
+(pdftex.def)             Requested size: 115.03749pt x 22.76228pt.
+ [1
 
+
+{C:/Users/simon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/simon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc} <./Images/WHZ_Dreieck_Logo.png> <./Images/WHZ_Logo_dt.png> <./Images/Porsche-Motorsport-Logo-Vector.svg-.png>]
 
 Package caption Warning: Unused \captionsetup[algorithm] on input line 107.
 See the caption package documentation for explanation.
 
-<Images/WHZ_Dreieck_Logo.png, id=6, 1042.49475pt x 464.937pt>
 File: Images/WHZ_Dreieck_Logo.png Graphic file (type png)
 <use Images/WHZ_Dreieck_Logo.png>
-Package pdftex.def Info: Images/WHZ_Dreieck_Logo.png  used on input line 228.
+Package pdftex.def Info: Images/WHZ_Dreieck_Logo.png  used on input line 320.
 (pdftex.def)             Requested size: 204.15259pt x 91.04872pt.
-<Images/WHZ_Logo_dt.png, id=8, 246.4407pt x 64.3203pt>
 File: Images/WHZ_Logo_dt.png Graphic file (type png)
 <use Images/WHZ_Logo_dt.png>
-Package pdftex.def Info: Images/WHZ_Logo_dt.png  used on input line 228.
+Package pdftex.def Info: Images/WHZ_Logo_dt.png  used on input line 320.
 (pdftex.def)             Requested size: 119.91843pt x 31.2982pt.
-<Images/Porsche-Motorsport-Logo-Vector.svg-.png, id=9, 451.6875pt x 89.3739pt>
 File: Images/Porsche-Motorsport-Logo-Vector.svg-.png Graphic file (type png)
 <use Images/Porsche-Motorsport-Logo-Vector.svg-.png>
-Package pdftex.def Info: Images/Porsche-Motorsport-Logo-Vector.svg-.png  used on input line 228.
+Package pdftex.def Info: Images/Porsche-Motorsport-Logo-Vector.svg-.png  used on input line 320.
 (pdftex.def)             Requested size: 115.03749pt x 22.76228pt.
-[1
-
-{C:/Users/simon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/simon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc} <./Images/WHZ_Dreieck_Logo.png> <./Images/WHZ_Logo_dt.png> <./Images/Porsche-Motorsport-Logo-Vector.svg-.png>] (stellenbosch_ee_report.aux)
+[2{C:/Users/simon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}] (expose.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
-Package rerunfilecheck Info: File `stellenbosch_ee_report.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `expose.out' has not changed.
+(rerunfilecheck)             Checksum: 883B68387414810677364594134CF951;932.
  ) 
 Here is how much of TeX's memory you used:
- 35257 strings out of 467691
- 714330 string characters out of 5414987
- 1098727 words of memory out of 5000000
- 63839 multiletter control sequences out of 15000+600000
- 631980 words of font info for 45 fonts, out of 8000000 for 9000
+ 35366 strings out of 467691
+ 715548 string characters out of 5414987
+ 1107685 words of memory out of 5000000
+ 63896 multiletter control sequences out of 15000+600000
+ 642893 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,12n,121p,1035b,1055s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/simon/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb>
-Output written on stellenbosch_ee_report.pdf (1 page, 77019 bytes).
+ 116i,12n,121p,1032b,1136s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/simon/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/simon/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb>
+Output written on expose.pdf (2 pages, 115145 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
- 2 named destinations out of 1000 (max. 500000)
- 2076 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 PDF objects out of 1000 (max. 8388607)
+ 12 named destinations out of 1000 (max. 500000)
+ 10332 words of extra memory for PDF output out of 12000 (max. 10000000)
 

@@ -1,0 +1,321 @@
+\documentclass[a4paper,12pt]{report}
+
+% Page layout
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+% Font and text
+\usepackage[afrikaans,english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tgheros}  % bessere Arial-ähnliche Schrift
+\renewcommand{\familydefault}{\sfdefault}  % Sans Serif als Standard
+\usepackage{siunitx}
+\usepackage{tcolorbox}
+% \usepackage[scaled=.96]{XCharter}
+% \usepackage[scaled=.96]{caladea}  % font required by Stellenbosch University
+% \usepackage[scaled=.96,lf]{carlito}  % the scaling makes the math the same height
+% \renewcommand*\oldstylenums[1]{\carlitoOsF #1}
+\newcommand{\myemph}[1]{{\sffamily\bfseries#1}}
+\newcommand{\redact}[1]{\colorbox{black}{\color{black}#1}}
+\sloppy
+\onehalfspacing
+
+% Package for logo 
+\usepackage{eso-pic}
+
+% Headings
+\usepackage[raggedright,sf,bf]{titlesec}
+\usepackage[margin=\the\parindent,small,bf,sf]{caption}
+\titlelabel{\thetitle.\ }
+\titleformat{\chapter}[display]{\Large\bfseries\sffamily}{\chaptertitlename\ \thechapter}{10pt}{\Large \raggedright}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}  % remove spacing before chapter headings
+\makeatletter
+\let\originall@chapter\l@chapter
+\def\l@chapter#1#2{\originall@chapter{{\sffamily #1}}{#2}}
+\makeatother
+
+%% Alternative headings using small-caps (comment out the top section)
+%\usepackage[raggedright,bf]{titlesec}
+%\usepackage[margin=\the\parindent,small,bf]{caption}
+%\titlelabel{\thetitle.\ }
+%\titleformat{\chapter}[display]{\huge\scshape}{\chaptertitlename\ \thechapter}{15pt}{\Huge \raggedright}
+%\titlespacing*{\chapter}{0pt}{0pt}{40pt}  % remove spacing before chapter headings
+
+% Table of contents
+\let \savenumberline \numberline
+\def \numberline#1{\savenumberline{#1.}}
+
+% Figures
+\usepackage{graphicx}
+\usepackage{float}          % for [H] figure placement
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage{subcaption}
+\setlength{\abovecaptionskip}{7.5pt}  % spacing above and below captions
+\newcommand*{\WaterMark}[2][0.2\paperwidth]{\AddToShipoutPicture*{\AtTextCenter{\parbox[c]{0pt}{\makebox[0pt][c]{\includegraphics[width=#1]{#2}}}}}}
+
+% Mathematics
+\usepackage[cmex10]{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\T}{^\top}
+\newcommand{\tr}{\textrm{tr}}
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\newcommand{\defeq}{\triangleq}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\newcommand{\mytable}{
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    }
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+% Header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markright{\normalsize \thesection.\ #1}}
+%\fancyhead[C]{\nouppercase{\textit{\rightmark}}}
+\fancyfoot[C]{\thepage}
+\setlength\headheight{14.5pt}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[C]{\thepage}
+}
+
+% Pseudo-code
+\usepackage{algorithm}  % should go before \usepackage{hyperref}
+
+% Table of contents and hyperlinks
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linktoc=all,citecolor=black,linkcolor=black}
+\usepackage[nottoc]{tocbibind}
+
+% Pseudo-code
+\usepackage{algpseudocode}  % should go after \usepackage{hyperref}
+\renewcommand{\thealgorithm}{\arabic{chapter}.\arabic{algorithm}} 
+\captionsetup[algorithm]{labelfont={bf,sf},font=small,labelsep=colon}
+
+% Code listings
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codebg}{gray}{0.95}
+\definecolor{codeframe}{gray}{0.65}
+\definecolor{codekw}{RGB}{0,0,180}
+\definecolor{codestr}{RGB}{160,80,0}
+\definecolor{codecmt}{RGB}{30,120,30}
+\definecolor{codenumber}{gray}{0.50}
+
+\lstdefinelanguage{PowerShell}{
+  morekeywords={function,param,return,foreach,if,else,elseif,switch,while,do,
+                for,break,continue,try,catch,finally,throw,exit,begin,process,end,
+                filter,workflow,class,enum,true,false,null,not,and,or,in},
+  sensitive=false,
+  morestring=[b]",
+  morestring=[b]',
+  morecomment=[l]{\#},
+}
+
+\lstdefinestyle{codebase}{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  breakatwhitespace=false,
+  keepspaces=true,
+  showstringspaces=false,
+  frame=single,
+  framesep=4pt,
+  xleftmargin=18pt,
+  xrightmargin=4pt,
+  backgroundcolor=\color{codebg},
+  rulecolor=\color{codeframe},
+  captionpos=b,
+  numbers=left,
+  numberstyle=\tiny\color{codenumber},
+  stepnumber=1,
+  numbersep=8pt,
+  tabsize=4,
+  captionpos=b,
+}
+\lstdefinestyle{powershell}{
+  style=codebase,
+  language=PowerShell,
+  keywordstyle=\color{codekw}\bfseries,
+  stringstyle=\color{codestr},
+  commentstyle=\color{codecmt}\itshape,
+}
+\lstdefinestyle{shell}{
+  style=codebase,
+  language=bash,
+  keywordstyle=\color{codekw}\bfseries,
+  stringstyle=\color{codestr},
+  commentstyle=\color{codecmt}\itshape,
+}
+\lstdefinestyle{json}{
+  style=codebase,
+  language={},
+  stringstyle=\color{codestr},
+  morestring=[b]",
+}
+\lstdefinestyle{plain}{
+  style=codebase,
+  language={},
+}
+
+% Bibliography
+\usepackage{cite}  % automatically reorder inline citations
+\bibliographystyle{IEEEtran}
+
+% Fix titlesec issue
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+% Use standalone whole-number section labels (1, 2, 3, ...)
+\renewcommand{\thesection}{\arabic{section}}
+
+\begin{document}
+
+
+\newcommand{\AddLogoToPage}{%
+  \AddToShipoutPictureBG{%
+    \AtPageLowerLeft{%
+      \makebox[\paperwidth][r]{%
+        \includegraphics[height=3.2cm]{Images/WHZ_Dreieck_Logo.png}%
+      }%
+    }%
+  }%
+}
+\AddLogoToPage
+
+\newcommand{\AddTopLeftLogo}{%
+  \AddToShipoutPictureBG{%
+    \put(30,\LenToUnit{\paperheight}){%
+      \raisebox{-2cm}[0pt][0pt]{%
+        \makebox[0pt][l]{%
+          \includegraphics[height=1.1cm]{Images/WHZ_Logo_dt.png}%
+        }%
+      }%
+    }%
+  }%
+}
+\AddTopLeftLogo
+
+\newcommand{\AddTopRightLogo}{%
+  \AddToShipoutPictureBG{%
+    \put(450,\LenToUnit{\paperheight}){%
+      \raisebox{-1.8cm}[0pt][0pt]{%
+        \makebox[0pt][l]{%
+          \includegraphics[height=0.8cm]{Images/Porsche-Motorsport-Logo-Vector.svg-.png}%
+        }%
+      }%
+    }%
+  }%
+}
+\AddTopRightLogo
+
+\chapter*{Exposé: diploma thesis Porsche Motorsport EMA3}
+
+%---------------------------------------------------
+\section{Title}
+
+Development of an software analysis tool for MATLAB/Simulink models and their generated C Code, 
+providing a graphical signal dependency overview and computation data that can be used to optimize 
+runtime and reduce cross-core data transitions on the Formula E VCU.
+
+%--------------------------------------------------
+\section{Motivation/Problem Statement}
+
+At Porsche Motorsport, a large part of the software deployed on the Formula E and LMDH 
+vehicles is C code generated from MATLAB/Simulink models. These models are constantly 
+updated and optimized by Porsche engineers to improve the vehicle's performance.
+If a certain function in one of these models needs to be changed, the engineer currently 
+has to navigate through the model to track signal dependencies and understand the signal 
+composition for all necessary inputs of the function to be improved.
+Tracing a signal through the model this way is time consuming and generates a 
+cognitive overhead for these engineers. The engineers need a quick overview of individual 
+signal composition and the origin of computation.
+
+%--------------------------------------------------
+
+\section{Objective}
+
+The objective of this thesis is to develop a software analysis tool for MATLAB/Simulink models
+that accepts an SLX model or the generated Code and Artifacts from MATLAB Embedded Coder as input.
+By using a user-selected signal (which can be an output of a block or a signal in the model), 
+the tool will perform backward tracing of this signal through the model.
+The data gained from this analysis will be used to create a structural calculation tree that shows
+all blocks/values/signals/inputs that contribute to the signal.
+The result will be a readable map that instantly shows all relationships of the selected signal, 
+containing additional information such as the origin of computation for each block.
+This gives engineers a fast way to understand, review, and document signal dependencies 
+without manually navigating through the model.
+
+%--------------------------------------------------
+
+\section{Methodology/Procedure}
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item Analysis of generated C Code and Artifacts form Matlab Embedded Coder
+  \item Tool development with the support of AI coding models
+  \item The extent of AI generated code is at the student’s discretion, but is encouraged by the employer.
+\end{itemize}
+
+%--------------------------------------------------
+
+\section{Optional Extension / Benefits}
+
+Use of additional information gathered from the C code analysis to develop optimization 
+strategies for multicore VCU code deployment (optional)\\
+Recommendations for code placement across cores to reduce cross-core signal transfers.
+
+%--------------------------------------------------
+
+\section{Scope}
+
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item The focus is on the development of the analysis/mapping tool
+  \item multicore optimization suggestions are supplementary/optional
+  \item there is no automatic re-placement
+\end{itemize}
+
+
+%--------------------------------------------------
+
+\section{Schedule}
+
+Major milestones:
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item Literature review and familiarization with MATLAB Embedded Coder Artifacts
+  \item Development of the analysis tool framework
+  \item Implementation of backward tracing logic
+  \item Visualization/map generation
+  \item Tools ability to extract additional information used for multicore optimization
+  \item Optional optimization strategy development
+\end{itemize}
+
+
+%-----------------------------------------------
+
+\section{Support}
+
+Intern: Dr.-Ing. Stefan Lingl, Porsche EMA3 \\
+Extern: Prof. Dr.-Ing. Gernot Herbst, WHZ
+
+
+\end{document}
+

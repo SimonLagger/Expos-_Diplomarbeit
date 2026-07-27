@@ -28,7 +28,7 @@
 \usepackage[raggedright,sf,bf]{titlesec}
 \usepackage[margin=\the\parindent,small,bf,sf]{caption}
 \titlelabel{\thetitle.\ }
-\titleformat{\chapter}[display]{\huge\bfseries\sffamily}{\chaptertitlename\ \thechapter}{15pt}{\Huge \raggedright}
+\titleformat{\chapter}[display]{\Large\bfseries\sffamily}{\chaptertitlename\ \thechapter}{10pt}{\Large \raggedright}
 \titlespacing*{\chapter}{0pt}{0pt}{40pt}  % remove spacing before chapter headings
 \makeatletter
 \let\originall@chapter\l@chapter
@@ -183,6 +183,9 @@
 \patchcmd{\ttlh@hang}{\noindent}{}{}{}
 \makeatother
 
+% Use standalone whole-number section labels (1, 2, 3, ...)
+\renewcommand{\thesection}{\arabic{section}}
+
 \begin{document}
 
 
@@ -223,7 +226,118 @@
 }
 \AddTopRightLogo
 
-will be implemented later on 
+\chapter*{Topic Outline: Thesis Porsche Motorsport EMA3}
+
+%---------------------------------------------------
+\section{Title}
+
+Development of a software analysis tool for MATLAB/Simulink models and their generated C code, 
+providing a graphical signal dependency overview and computation data that can be used to optimize 
+runtime and reduce cross-core data transitions on the Formula E VCU.
+
+%--------------------------------------------------
+\section{Background / Problem Statement}
+
+At Porsche Motorsport, a large part of the software deployed on the Formula E and LMDH 
+vehicles is C code generated from MATLAB/Simulink models. These models are constantly 
+updated and optimized by Porsche engineers to improve the vehicle's performance.
+If a certain function in one of these models needs to be changed, the engineer currently 
+has to navigate through the model to track signal dependencies and understand the signal 
+composition for all necessary inputs of the function to be improved.
+Tracing a signal through the model this way is time consuming and generates 
+cognitive overhead for these engineers. The engineers need a quick overview of individual 
+signal composition and the origin of computation.
+
+%--------------------------------------------------
+
+\section{Objective}
+
+The objective of this thesis is to develop a software analysis tool for MATLAB/Simulink models
+that accepts an SLX model or the generated code and artifacts from MATLAB Embedded Coder as input.
+Using a user-selected signal (either a block output or a signal in the model), 
+the tool will perform backward tracing of this signal through the model.
+The data gained from this analysis will be used to create a structural calculation tree that shows
+all blocks, values, signals, and inputs that contribute to the selected signal.
+The result will be a readable map that shows all relationships of the selected signal, 
+including additional information such as the origin of computation for each block.
+This gives engineers a fast way to understand, review, and document signal dependencies 
+without manually navigating through the model.
+
+%--------------------------------------------------
+
+\section{Planned Approach}
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item Analysis of generated C code and artifacts from MATLAB Embedded Coder
+  \item Development of a tool that performs signal correlation mapping and generates a dependency map
+  \item Tool development with the support of AI coding models
+  \item Optional: usage of extracted information to support multicore VCU code placement decisions
+\end{itemize}
+
+%--------------------------------------------------
+
+\section{Use of AI Support}
+
+This thesis will make use of AI coding assistants GitHub Copilot
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item AI tools are used to accelerate implementation of code 
+  \item No Porsche source code, or confidential data will be shared with external AI services.
+  \item All AI generated code is reviewed, tested, and understood by the student before being 
+        integrated into the tool: the student remains fully responsible for correctness and 
+        code quality.
+  \item The extent of AI assisted code generation is at the student's discretion but encouraged by 
+        the employer as part of AI assisted development workflow.
+  \item Final tool architecture, design decisions, and validation are the student's own work.
+\end{itemize}
+
+%--------------------------------------------------
+
+\section{Scope}
+
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item Core focus: development of the signal tracing / dependency mapping tool
+  \item Multicore optimization recommendations are a supplementary, optional extension
+  \item No automatic code replacement across cores; the tool provides recommendations only
+\end{itemize}
+
+%--------------------------------------------------
+
+\section{Rough Timeline}
+
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item \textbf{Month 1:} Familiarization with MATLAB Embedded Coder artifacts and definition of tool architecture
+  \item \textbf{Months 2:} Development of backward tracing logic and core analysis engine
+  \item \textbf{Month 3:} Visualization / dependency map generation
+  \item \textbf{Month 4:} Testing and validation against real Formula E models; 
+        optional multicore optimization extension
+  \item \textbf{Month 5:} Debugging
+  \item \textbf{Month 6:} Documentation and thesis write-up
+\end{itemize}
+
+%--------------------------------------------------
+
+\section{Success Criteria}
+
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item The tool correctly traces signal dependencies on representative Formula E model examples
+  \item Engineers can use the tool's output to understand signal composition faster than 
+        manual model navigation
+  \item AI-assisted development workflow is documented as part of the thesis, providing the 
+        company with insight into its practical use and limitations
+\end{itemize}
+
+%--------------------------------------------------
+
+\section{Support}
+
+Intern: Dr.-Ing. Stefan Lingl, Porsche EMA3 \\
+Extern: Prof. Dr.-Ing. Gernot Herbst, WHZ
+
+%--------------------------------------------------
 
 \end{document}
 

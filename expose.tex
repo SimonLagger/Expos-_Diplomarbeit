@@ -233,7 +233,7 @@
 
 Development of an software analysis tool for MATLAB/Simulink models and their generated C Code, 
 providing a graphical signal dependency overview and computation data that can be used to optimize 
-runtime and reduce cross-core data transitions on the Formula E VCU.
+runtime and reduce cross-core data transitions on a Motorsport Vehicle Control Unit. 
 
 %--------------------------------------------------
 \section{Motivation/Problem Statement}
@@ -268,18 +268,50 @@ without manually navigating through the model.
 \section{Methodology/Procedure}
 \begin{itemize}
   \setlength{\itemsep}{0.05em}
-  \item Analysis of generated C Code and Artifacts form Matlab Embedded Coder
-  \item Tool development with the support of AI coding models
-  \item The extent of AI generated code is at the student’s discretion, but is encouraged by the employer.
+  \item Analysis of generated C code and Embedded Coder artifacts to establish
+        the relationship between Simulink blocks and generated code functions
+  \item Architectural design of the analysis tool: specification of the parsing system,
+        data structures for backward signal tracing, integration of the database for block metadata, 
+        and interface between model input and visualization output
+  \item Edge case identification and and handling for complex Simulink models, 
+        including Stateflow, Bussystems, custom blocks, Lookup tables, and other non-standard blocks
+  \item Codebase development using AI-assisted coding tools, with the
+        student responsible for task decomposition, code review, and
+        validation against defined requirements
+  \item Verification of tool output against manually traced signals
+        from existing Simulink models
 \end{itemize}
 
 %--------------------------------------------------
 
 \section{Optional Extension / Benefits}
 
-Use of additional information gathered from the C code analysis to develop optimization 
-strategies for multicore VCU code deployment (optional)\\
-Recommendations for code placement across cores to reduce cross-core signal transfers.
+\textbf{Goal:} Reduce cross-core communication overhead in the multicore
+Motorsport Vehicle Control Unit and enable more efficient task scheduling.
+As an example, all C functions belonging to a critical telemetry data
+channel's calculation tree could be placed on the same core, reducing the
+number of cross-core signal transfers per execution round and the resulting
+latency. This is enabled by the signal dependency data extracted during
+backward tracing, combined with additional information from the generated
+C code and Embedded Coder artifacts.\\
+\newline
+\noindent
+Based on this, the following strategies will be evaluated:
+
+\begin{itemize}
+  \setlength{\itemsep}{0.05em}
+  \item Creating Clusters of signals and their computing blocks by shared dependency,
+        placing tightly coupled groups on the same core to minimize
+        cross-core transitions.
+  \item Identifying time relevant signal chains with the highest cross-core transfer
+        frequency, and prioritizing these for relocation.
+  \item Analyzing Embedded Coder artifacts to identify configured rate-transition mechanisms 
+        (e.g., buffering vs. semaphores) and evaluating their runtime cost based on the execution code.
+\end{itemize}
+\noindent
+The tool provides placement \emph{recommendations}; no automatic
+re-placement or code modification is performed (see Scope)
+
 
 %--------------------------------------------------
 
@@ -293,27 +325,11 @@ Recommendations for code placement across cores to reduce cross-core signal tran
 \end{itemize}
 
 
-%--------------------------------------------------
-
-\section{Schedule}
-
-Major milestones:
-\begin{itemize}
-  \setlength{\itemsep}{0.05em}
-  \item Literature review and familiarization with MATLAB Embedded Coder Artifacts
-  \item Development of the analysis tool framework
-  \item Implementation of backward tracing logic
-  \item Visualization/map generation
-  \item Tools ability to extract additional information used for multicore optimization
-  \item Optional optimization strategy development
-\end{itemize}
-
-
 %-----------------------------------------------
 
 \section{Support}
 
-Intern: Dr.-Ing. Stefan Lingl, Porsche EMA3 \\
+Intern: Stefan Lingl, Porsche EMA3 \\
 Extern: Prof. Dr.-Ing. Gernot Herbst, WHZ
 
 

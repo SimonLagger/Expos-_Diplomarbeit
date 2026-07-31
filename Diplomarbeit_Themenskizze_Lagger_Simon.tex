@@ -231,12 +231,12 @@
 %---------------------------------------------------
 \section{Title}
 
-Development of a software analysis tool for MATLAB/Simulink models and their generated C code, 
+Development of an software analysis tool for MATLAB/Simulink models and their generated C Code, 
 providing a graphical signal dependency overview and computation data that can be used to optimize 
-runtime and reduce cross-core data transitions on the Formula E VCU.
+runtime and reduce cross-core data transitions on a Motorsport Vehicle Control Unit. 
 
 %--------------------------------------------------
-\section{Background / Problem Statement}
+\section{Motivation/Problem Statement}
 
 At Porsche Motorsport, a large part of the software deployed on the Formula E and LMDH 
 vehicles is C code generated from MATLAB/Simulink models. These models are constantly 
@@ -244,7 +244,7 @@ updated and optimized by Porsche engineers to improve the vehicle's performance.
 If a certain function in one of these models needs to be changed, the engineer currently 
 has to navigate through the model to track signal dependencies and understand the signal 
 composition for all necessary inputs of the function to be improved.
-Tracing a signal through the model this way is time consuming and generates 
+Tracing a signal through the model this way is time consuming and generates a 
 cognitive overhead for these engineers. The engineers need a quick overview of individual 
 signal composition and the origin of computation.
 
@@ -253,43 +253,65 @@ signal composition and the origin of computation.
 \section{Objective}
 
 The objective of this thesis is to develop a software analysis tool for MATLAB/Simulink models
-that accepts an SLX model or the generated code and artifacts from MATLAB Embedded Coder as input.
-Using a user-selected signal (either a block output or a signal in the model), 
+that accepts an SLX model or the generated Code and Artifacts from MATLAB Embedded Coder as input.
+By using a user-selected signal (which can be an output of a block or a signal in the model), 
 the tool will perform backward tracing of this signal through the model.
 The data gained from this analysis will be used to create a structural calculation tree that shows
-all blocks, values, signals, and inputs that contribute to the selected signal.
-The result will be a readable map that shows all relationships of the selected signal, 
-including additional information such as the origin of computation for each block.
+all blocks/values/signals/inputs that contribute to the signal.
+The result will be a readable map that instantly shows all relationships of the selected signal, 
+containing additional information such as the origin of computation for each block.
 This gives engineers a fast way to understand, review, and document signal dependencies 
 without manually navigating through the model.
 
 %--------------------------------------------------
 
-\section{Planned Approach}
+\section{Methodology/Procedure}
 \begin{itemize}
   \setlength{\itemsep}{0.05em}
-  \item Analysis of generated C code and artifacts from MATLAB Embedded Coder
-  \item Development of a tool that performs signal correlation mapping and generates a dependency map
-  \item Tool development with the support of AI coding models
-  \item Optional: usage of extracted information to support multicore VCU code placement decisions
+  \item Analysis of generated C code and Embedded Coder artifacts to establish
+        the relationship between Simulink blocks and generated code functions
+  \item Architectural design of the analysis tool: specification of the parsing system,
+        data structures for backward signal tracing, integration of the database for block metadata, 
+        and interface between model input and visualization output
+  \item Edge case identification and and handling for complex Simulink models, 
+        including Stateflow, Bussystems, custom blocks, Lookup tables, and other non-standard blocks
+  \item Codebase development using AI-assisted coding tools, with the
+        student responsible for task decomposition, code review, and
+        validation against defined requirements
+  \item Verification of tool output against manually traced signals
+        from existing Simulink models
 \end{itemize}
 
 %--------------------------------------------------
 
-\section{Use of AI Support}
+\section{Optional Extension / Benefits}
 
-This thesis will make use of AI coding assistants GitHub Copilot
+\textbf{Goal:} Reduce cross-core communication overhead in the multicore
+Motorsport Vehicle Control Unit and enable more efficient task scheduling.
+As an example, all C functions belonging to a critical telemetry data
+channel's calculation tree could be placed on the same core, reducing the
+number of cross-core signal transfers per execution round and the resulting
+latency. This is enabled by the signal dependency data extracted during
+backward tracing, combined with additional information from the generated
+C code and Embedded Coder artifacts.\\
+\newline
+\noindent
+Based on this, the following strategies will be evaluated:
+
 \begin{itemize}
   \setlength{\itemsep}{0.05em}
-  \item AI tools are used to accelerate implementation of code 
-  \item No Porsche source code, or confidential data will be shared with external AI services.
-  \item All AI generated code is reviewed, tested, and understood by the student before being 
-        integrated into the tool: the student remains fully responsible for correctness and 
-        code quality.
-  \item The extent of AI assisted code generation is at the student's discretion but encouraged by 
-        the employer as part of AI assisted development workflow.
-  \item Final tool architecture, design decisions, and validation are the student's own work.
+  \item Creating Clusters of signals and their computing blocks by shared dependency,
+        placing tightly coupled groups on the same core to minimize
+        cross-core transitions.
+  \item Identifying time relevant signal chains with the highest cross-core transfer
+        frequency, and prioritizing these for relocation.
+  \item Analyzing Embedded Coder artifacts to identify configured rate-transition mechanisms 
+        (e.g., buffering vs. semaphores) and evaluating their runtime cost based on the execution code.
 \end{itemize}
+\noindent
+The tool provides placement \emph{recommendations}; no automatic
+re-placement or code modification is performed (see Scope)
+
 
 %--------------------------------------------------
 
@@ -297,47 +319,18 @@ This thesis will make use of AI coding assistants GitHub Copilot
 
 \begin{itemize}
   \setlength{\itemsep}{0.05em}
-  \item Core focus: development of the signal tracing / dependency mapping tool
-  \item Multicore optimization recommendations are a supplementary, optional extension
-  \item No automatic code replacement across cores; the tool provides recommendations only
+  \item The focus is on the development of the analysis/mapping tool
+  \item multicore optimization suggestions are supplementary/optional
+  \item there is no automatic re-placement
 \end{itemize}
 
-%--------------------------------------------------
 
-\section{Rough Timeline}
-
-\begin{itemize}
-  \setlength{\itemsep}{0.05em}
-  \item \textbf{Month 1:} Familiarization with MATLAB Embedded Coder artifacts and definition of tool architecture
-  \item \textbf{Months 2:} Development of backward tracing logic and core analysis engine
-  \item \textbf{Month 3:} Visualization / dependency map generation
-  \item \textbf{Month 4:} Testing and validation against real Formula E models; 
-        optional multicore optimization extension
-  \item \textbf{Month 5:} Debugging
-  \item \textbf{Month 6:} Documentation and thesis write-up
-\end{itemize}
-
-%--------------------------------------------------
-
-\section{Success Criteria}
-
-\begin{itemize}
-  \setlength{\itemsep}{0.05em}
-  \item The tool correctly traces signal dependencies on representative Formula E model examples
-  \item Engineers can use the tool's output to understand signal composition faster than 
-        manual model navigation
-  \item AI-assisted development workflow is documented as part of the thesis, providing the 
-        company with insight into its practical use and limitations
-\end{itemize}
-
-%--------------------------------------------------
+%-----------------------------------------------
 
 \section{Support}
 
-Intern: Dr.-Ing. Stefan Lingl, Porsche EMA3 \\
+Intern: Stefan Lingl, Porsche EMA3 \\
 Extern: Prof. Dr.-Ing. Gernot Herbst, WHZ
-
-%--------------------------------------------------
 
 \end{document}
 
